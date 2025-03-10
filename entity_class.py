@@ -1,3 +1,7 @@
+from random import randint
+from render import renderFog
+import time
+
 class Entity:
     def __init__(self, hp, time, atk_rate, atk, speed, range, pos_player):
         
@@ -8,6 +12,7 @@ class Entity:
         self.speed = speed
         self.range = range
         self.pos = (0, 0)
+        
     
     def death(self):
         print('JORDAN T MORT')
@@ -21,8 +26,6 @@ class Entity:
 
     def attack(self, target, damage ):
         target.decrease_hp(damage)
-        
-        return
     
     
     def tick(self):
@@ -41,7 +44,19 @@ class Monster(Entity):
     def __init__(self, hp, time, atk_rate, atk, speed, range, pos_player):
         super().__init__(hp, time, atk_rate, atk, speed, range, pos_player)
         
-
+class Caecior(Monster):
+    def __init__(self, hp, time, atk_rate, atk, speed, range, pos_player):
+        super().__init__(hp, time, atk_rate, atk, speed, range, pos_player)
+        
+    def attack(self, target, damage):
+        super().attack(target, damage)
+        self.activate_warfog()
+    
+    def activate_warfog(self):
+        renderFog == True
+        print("Warfog effect activated")
+        time.sleep(15)
+    
         
         
     
