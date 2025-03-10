@@ -17,7 +17,11 @@ class Entity:
     def death(self):
         print('JORDAN T MORT')
         
+    def heal(self, hp, heal):
+        self.hp += heal
         
+        return
+            
             
     def decrease_hp(self , damage):
         self.hp -= damage
